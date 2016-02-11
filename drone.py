@@ -13,7 +13,10 @@ class Drone(object):
             return True
         return turn >= self.plan[-1]['date']
 
-    def create_plan(self, item):
+    def create_plan(self, delivery):
+        """ delivery = (item, customer_position) """
+        warehouse = self.find_closer_route(*delivery)
+
 
 
     def find_closer_route(self, item, client_position):
