@@ -1,6 +1,18 @@
 
 from reader import Reader
 
+def format_actions_list(actions):
+    Q = len(res)
+    print Q
+    for action in actions:
+        if action["type"] in ["L", "U"]:
+            print action["drone_id"], action["type"], action["warehouse_id"], action["product_id"], action["number"]
+        if action["type"] == "D":
+            print action["drone_id"], action["type"], action["customer_id"], action["product_id"], action["number"]
+        if action["type"] == "W":
+            print action["drone_id"], action["type"], action["number"]
+
+
 if __name__ == "__main__":
     # init
     r = Reader("/PATH/TO/FILE")
