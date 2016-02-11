@@ -3,6 +3,6 @@ class Order(object):
     def __init__(self, id, row, column, items):
         self.id = id
         self.row = row
-        self.colum = colum
+        self.column = column
         self.items = items
         self.number_of_items = len(items)

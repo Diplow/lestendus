@@ -1,4 +1,4 @@
-from drone import drone
+from drone import Drone
 from warehouse import Warehouse
 from product import Product
 from order import Order
@@ -8,7 +8,7 @@ from warehouse import Warehouse
 class Reader(object):
     def __init__(self, path):
         self.path = path
-
+        input_data = self._get_input(path)
         self.deadline = input_data["deadline"]
         self.rows = input_data["rows"]
         self.columns = input_data["columns"]
@@ -19,10 +19,10 @@ class Reader(object):
         self.num_warehouses = input_data["num_warehouses"]
         self.max_load = input_data["max_load"]
 
-        self.drones = [Drone(i, input_data["max_load"]) for i in range(input_data["num_drones"])]
         self.products = [Product(weight) for weight in input_data["product_weights"]]
         self.warehouses = [Warehouse(wh["row"], wh["column"], wh["stock"]) for wh in input_data["warehouses"]]
-        self.orders = [Order(i, order["row"], order["column"],  order["product_ids"], order["num_items"]) for i, order in enumerate(input_data["orders"])]
+        self.drones = [Drone(i, self.warehouses, input_data["max_load"]) for i in range(input_data["num_drones"])]
+        self.orders = [Order(i, order["row"], order["column"],  order["product_ids"]) for i, order in enumerate(input_data["orders"])]
 
     def _get_input(self, FILE_PATH):
         f = open(FILE_PATH, 'r')
