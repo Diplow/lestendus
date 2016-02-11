@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 
-class Reader(object):
-
-    def init(self):
-        pass
-=======
 busy_day_file_path = '../busy_day.in'
 mother_of_all_warehouses_file_path = '../mother_of_all_warehouses.in'
 redundancy_file_path = '../redundancy.in'
@@ -64,4 +58,4 @@ def get_input(FILE_PATH):
 BUSY_DAY_INPUT = get_input(busy_day_file_path)
 MOTHER_OF_ALL_WAREHOUSES_INPUT = get_input(mother_of_all_warehouses_file_path)
 REDUNDANCY_INPUT = get_input(redundancy_file_path)
->>>>>>> eb366a46fe707a6fd470a79c265bfedfb12bfa07
+
