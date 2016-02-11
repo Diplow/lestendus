@@ -24,7 +24,7 @@ class Reader(object):
         self.warehouses = [Warehouse(wh["row"], wh["column"], wh["stock"]) for wh in input_data["warehouses"]]
         self.orders = [Order(i, order["row"], order["column"],  order["product_ids"], order["num_items"]) for i, order in enumerate(input_data["orders"])]
 
-    def _get_input(FILE_PATH):
+    def _get_input(self, FILE_PATH):
         f = open(FILE_PATH, 'r')
         parameters = f.readline().split(' ')
 
