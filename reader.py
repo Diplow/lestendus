@@ -19,7 +19,7 @@ class Reader(object):
         self.num_warehouses = input_data["num_warehouses"]
         self.max_load = input_data["max_load"]
 
-        self.drones = [Drone(input_data["max_load"]) for i in range(input_data["num_drones"])]
+        self.drones = [Drone(i, input_data["max_load"]) for i in range(input_data["num_drones"])]
         self.products = [Product(weight) for weight in input_data["product_weights"]]
         self.warehouses = [Warehouse(wh["row"], wh["column"], wh["stock"]) for wh in input_data["warehouses"]]
         self.orders = [Order(i, order["row"], order["column"],  order["product_ids"], order["num_items"]) for i, order in enumerate(input_data["orders"])]
