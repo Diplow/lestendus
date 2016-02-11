@@ -12,7 +12,7 @@ class Drone(object):
     def available(self, turn):
         if not self.plan:
             return True
-        return turn >= self.plan[-1]['date']
+        return turn >= self.plan[-1]['date'] + 2
 
     def create_plan(self, order, warehouses, t):
         warehouse, number  = self.find_closer_warehouse(order, warehouses)
@@ -20,6 +20,8 @@ class Drone(object):
                 "product_id": order.items[0], "number": 1})
         self.plan.append({"type":"D", "drone_id": self.idx, "customer_id": order.id,\
                 "product_id": order.items[0], "number": 1, "date": number + t})
+        self.row = order.row
+        self.column = order.column
 
     def find_closer_warehouse(self, order, warehouses):
         warehouse_options = list()
