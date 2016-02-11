@@ -1,6 +1,7 @@
 class Order(object):
     """ 'items' attribute is a list of product_ids representing each item ordered. """
-    def __init__(self, row, column, items):
+    def __init__(self, id, row, column, items):
+        self.id = id
         self.row = row
         self.colum = colum
         self.items = items

@@ -1,6 +1,13 @@
 
 from reader import Reader
 
+def split_orders_to_items(orders):
+    res = []
+    for id_, o in enumerate(orders):
+        res += [Order(id_, o.row, o.column, [o.items[i]]) for i in xrange(len(o.number_of_items))]
+    return res
+        
+
 def format_actions_list(actions):
     Q = len(res)
     print Q
