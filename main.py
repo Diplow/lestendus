@@ -28,6 +28,8 @@ def format_actions_list(actions):
 if __name__ == "__main__":
     # init
     r = Reader(BUSY_DAY_FILE_PATH)
+    #r = Reader(MOTHER_OF_ALL_WAREHOUSES_FILE_PATH)
+    #r = Reader(REDUNDANCY_FILE_PATH)
     items = split_orders_to_items(r.orders)
 
     # do it

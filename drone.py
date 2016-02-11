@@ -20,6 +20,7 @@ class Drone(object):
                 "product_id": order.items[0], "number": 1})
         self.plan.append({"type":"D", "drone_id": self.idx, "customer_id": order.id,\
                 "product_id": order.items[0], "number": 1, "date": math.ceil(number) + t})
+        warehouses[warehouse].stock[order.items[0]] -= 1
         self.row = order.row
         self.column = order.column
 
