@@ -2,6 +2,7 @@ from drone import drone
 from warehouse import Warehouse
 from product import Product
 from order import Order
+from warehouse import Warehouse
 
 
 class Reader(object):
@@ -20,7 +21,7 @@ class Reader(object):
 
         self.drones = [Drone(input_data["max_load"]) for i in range(input_data["num_drones"])]
         self.products = [Product(weight) for weight in input_data["product_weights"]]
-        self.warehouses = input_data["warehouses"]
+        self.warehouses = [Warehouse(wh["row"], wh["column"], wh["stock"]) for wh in input_data["warehouses"]]
         self.orders = [Order(order["row"], order["column"],  order["product_ids"], order["num_items"]) for order in input_data["orders"]]
 
     def _get_input(FILE_PATH):
