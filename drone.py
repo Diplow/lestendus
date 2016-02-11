@@ -1,5 +1,5 @@
-import warehouse
 import math
+from reader import BUSY_DAY_INPUT as data
 
 class Drone(object):
 
@@ -17,12 +17,10 @@ class Drone(object):
 
 
     def find_closer_route(self, item, client_position):
-        """ asssuming 
-        """
         warehouse_options = list()
-        for w_idx, warehouse_inventory in enumerate (warehouse.inventory):
-            if warehouse_inventory[item] > 0:
-                warehouse_options.append((w_idx, self.compute_path(warehouse.position[w_idx], client_position)))
+        for w_idx, warehouse_inventory in enumerate(data['warehouses']):
+            if warehouse_inventory["stock"][item] > 0:
+                warehouse_options.append((w_idx, self.compute_path(data['warehouses'], client_position)))
         return sorted(warehouse_options.sort(key = lambda x: x[1]))[0]
 
         def compute_path(self, warehouse_position, client_position):
