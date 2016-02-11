@@ -6,7 +6,7 @@ class Drone(object):
         self.load = kwargs.get('load', -1)
         self.row = warehouses[0].row
         self.column = warehouses[0].column
-        self.plan = None
+        self.plan = list()
         self.idx = idx
 
     def available(self, turn):
