@@ -1,5 +1,8 @@
-
 from reader import Reader
+BUSY_DAY_FILE_PATH = '../busy_day.in'
+MOTHER_OF_ALL_WAREHOUSES_FILE_PATH = '../mother_of_all_warehouses.in'
+REDUNDANCY_FILE_PATH = '../redundancy.in'
+
 
 def split_orders_to_items(orders):
     res = []
